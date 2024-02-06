@@ -1,0 +1,19 @@
+public class Main {
+    public static void main(String[] args) {
+        String nama1 = "Anton";
+        String nama2 = null;
+        String nama3 = "Dendy";
+
+        System.out.println(tampilkanNama(nama1));
+        System.out.println(tampilkanNama(nama2));
+        System.out.println(tampilkanNama(nama3));
+    }
+
+    public static String tampilkanNama(String nama) {
+        if (nama == null) {
+            return "Satu untuk kamu, satu untuk saya.";
+        } else {
+            return "Satu untuk " + nama + ", satu untuk saya.";
+        }
+    }
+}
