@@ -1,41 +1,51 @@
-package com.ug3.soal1;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
-public class UGSoal1
-package com.ug3.soal1;
-        import java.text.DateFormat;
-        import java.text.SimpleDateFormat;
-        import java.util.Date;
-        import java.util.Scanner;
+public class UG3Soal2 {
 
-public class UGSoal1
-{
-    public static void main( String[] args )
-    {
-        Scanner inp = new Scanner(System.in);
-        String nama = inp.nextLine();
-        DateFormat format_date = new SimpleDateFormat("dd-MMMM-yy");
-        DateFormat format_time = new SimpleDateFormat("h:m a");
-        Date process_date = new Date();
-        Date process_time = new Date();
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        String tanggal = format_date.format(process_date);
-        String waktu = format_time.format(process_time);
+        // Looping untuk perulangan program
+        while (true) {
+            // Input kata pertama dan kedua
+            System.out.println("Bilangan Fibonacci dari kata");
+            System.out.println("-------------------------");
+            System.out.print("Masukkan input pertama: ");
+            String firstWord = scanner.nextLine();
+            System.out.print("Masukkan input kedua: ");
+            String secondWord = scanner.nextLine();
 
-        UGSoal1 run = new UGSoal1();
+            // Hitung jumlah karakter
+            int n1 = countCharacters(firstWord);
+            int n2 = countCharacters(secondWord);
 
-        run.absen(nama, tanggal, waktu);
+            // Tampilkan deret Fibonacci
+            System.out.println("Bilangan Fibonacci");
+            for (int i = 0; i < 10; i++) {
+                System.out.print(n1 + " ");
+                int nextTerm = n1 + n2;
+                n1 = n2;
+                n2 = nextTerm;
+            }
+
+            // Tampilkan prompt keluar program
+            System.out.println("\nKeluar dari program (ketikan exit): ");
+            String input = scanner.nextLine();
+
+            // Periksa input untuk keluar program
+            if (input.equalsIgnoreCase("exit")) {
+                break;
+            }
+        }
     }
 
-    public void absen(String name, String date, String time) {
-        System.out.println("berhasil absensi"+"\n"+
-                "Atas nama : "+name+"\n"+
-                "Pada tanggal : "+date+"\n"+
-                "Pukul : "+time);
+    private static int countCharacters(String word) {
+        int count = 0;
+        for (char c : word.toCharArray()) {
+            if (Character.isLetter(c)) {
+                count++;
+            }
+        }
+        return count;
     }
-
-
 }
