@@ -1,19 +1,29 @@
-public class Main {
-    public static void main(String[] args) {
-        String nama1 = "Anton";
-        String nama2 = null;
-        String nama3 = "Dendy";
+public class SmartCardMain
+{
+    public static void main( String[] args )
+    {
+        SmartCard sc = new SmartCard();
+        sc.setNama("Guntur Putra");
+        sc.setSaldo(50000);
 
-        System.out.println(tampilkanNama(nama1));
-        System.out.println(tampilkanNama(nama2));
-        System.out.println(tampilkanNama(nama3));
-    }
+        Voucher vc1 = new Voucher();
+        vc1.setNominal(-50000);
+        vc1.buatVoucher();
 
-    public static String tampilkanNama(String nama) {
-        if (nama == null) {
-            return "Satu untuk kamu, satu untuk saya.";
-        } else {
-            return "Satu untuk " + nama + ", satu untuk saya.";
-        }
+        Voucher vc2 = new Voucher();
+        vc2.setNominal(50000);
+        vc2.buatVoucher();
+
+        Voucher vc3 = new Voucher();
+        vc3.setNominal(150000);
+        vc3.buatVoucher();
+
+        System.out.println("=====Skenario 1: Top Up Gagal=====");
+        sc.topUp(vc1);
+        System.out.println("===> Saldo "+sc.getNama()+" saat ini Rp "+sc.getSaldo());
+        System.out.println("\n=====Skenario 2: Top Up Sukses=====");
+        sc.topUp(vc2);
+        sc.topUp(vc3);
+        System.out.println("===> Saldo "+sc.getNama()+" saat ini Rp "+sc.getSaldo());
     }
 }
